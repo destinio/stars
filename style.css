@@ -19,7 +19,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  perspective: 6rem;
+  perspective: 3rem;
   transform: scale(var(--scale));
   /* border: 4px solid red; */
 }
@@ -28,10 +28,32 @@ body {
   position: absolute;
   height: 2px;
   width: 2px;
-  background-color: rgb(255, 251, 198);
+  background-color: currentColor;
   border-radius: 100%;
   transform-style: preserve-3d;
   box-shadow: 0 0 10px 1px #fff;
+  overflow: hidden;
+  color: #fff;
+}
+
+.star::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* transform: translateY(-50%); */
+  /* background-image: radial-gradient(#fff, #000); */
+  background-origin: top center;
+}
+
+.blue {
+  color: #9393ff;
+}
+.yellow {
+  color: rgb(255, 248, 215);
+}
+.red {
+  color: rgb(255, 177, 177);
 }
 
 .blink {
@@ -40,16 +62,16 @@ body {
 
 @keyframes blink {
   0% {
-    background-color: rgb(255, 251, 198);
+    background-color: currentColor;
     box-shadow: 0 0 10px 1px #fff;
   }
   50% {
     background-color: #fff;
-    box-shadow: 0 0 10px 3px #fff;
+    box-shadow: 0 0 10px 2px #fff;
   }
 
   100% {
-    background-color: rgb(255, 251, 198);
+    background-color: currentColor;
     box-shadow: 0 0 10px 1px #fff;
   }
 }

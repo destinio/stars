@@ -11,10 +11,13 @@ for (let i = 0; i <= MAX_STARS; i++) {
 
   const star = document.createElement('div')
 
-  const z = Math.floor(Math.random() * 100)
+  const z = Math.floor(Math.random() * 50)
+
+  const colors = ['blue', 'yellow', 'red']
 
   star.classList.add(`star`)
   star.classList.add(`star-${z}`)
+  star.classList.add(colors[Math.floor(Math.random() * colors.length)])
   star.style.setProperty('top', `${starY}px`)
   star.style.setProperty('left', `${starX}px`)
   stars.appendChild(star)
@@ -25,14 +28,12 @@ for (let i = 0; i <= MAX_STARS; i++) {
 window.addEventListener('wheel', e => {
   const prevScale = Number(getComputedStyle(stars).getPropertyValue('--scale'))
 
-  console.log(prevScale)
-
   if (Math.sign(e.deltaY) === 1) {
     stars.style.setProperty('--scale', `${Number(prevScale) + 0.02}`)
     return
   }
 
-  if (prevScale <= 0.3) {
+  if (prevScale <= 0.6) {
     return
   }
 
@@ -45,12 +46,11 @@ window.addEventListener('mousemove', e => {
     `${(e.clientX / window.innerWidth) * 100}% ${(e.clientY / window.innerHeight) * 100}%`
   )
 })
-setInterval(() => {
-  const currentStar = document.querySelector(
-    `.star-${Math.floor(Math.random() * 100)}`
-  ) as HTMLDivElement
 
-  if (!currentStar) return
+setInterval(() => {
+  const allStars = document.querySelectorAll('.star')
+
+  const currentStar = allStars[Math.floor(Math.random() * allStars.length)]
 
   currentStar.classList.remove('blink')
   currentStar.classList.add('blink')
