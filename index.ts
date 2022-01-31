@@ -2,8 +2,8 @@ const stars = document.querySelector('#stars') as HTMLDivElement
 
 const MAX_STARS = 200
 
-const WIN_HEIGHT = document.body.offsetHeight
-const WIN_WIDTH = document.body.offsetWidth
+const WIN_HEIGHT = stars.offsetHeight
+const WIN_WIDTH = stars.offsetWidth
 
 for (let i = 0; i <= MAX_STARS; i++) {
   const starX = Math.floor(Math.random() * WIN_WIDTH) + 1
@@ -11,12 +11,15 @@ for (let i = 0; i <= MAX_STARS; i++) {
 
   const star = document.createElement('div')
 
-  star.classList.add('star')
+  const z = Math.floor(Math.random() * 100)
+
+  star.classList.add(`star`)
+  star.classList.add(`star-${z}`)
   star.style.setProperty('top', `${starY}px`)
   star.style.setProperty('left', `${starX}px`)
-  star.style.setProperty('transform', `translateZ(${Math.floor(Math.random() * 100)}px)`)
-
   stars.appendChild(star)
+
+  star.style.setProperty('transform', `translateZ(${z}px)`)
 }
 
 window.addEventListener('wheel', e => {
@@ -29,7 +32,7 @@ window.addEventListener('wheel', e => {
     return
   }
 
-  if (prevScale <= 0.6) {
+  if (prevScale <= 0.3) {
     return
   }
 
@@ -42,3 +45,13 @@ window.addEventListener('mousemove', e => {
     `${(e.clientX / window.innerWidth) * 100}% ${(e.clientY / window.innerHeight) * 100}%`
   )
 })
+setInterval(() => {
+  const currentStar = document.querySelector(
+    `.star-${Math.floor(Math.random() * 100)}`
+  ) as HTMLDivElement
+
+  if (!currentStar) return
+
+  currentStar.classList.remove('blink')
+  currentStar.classList.add('blink')
+}, 250)

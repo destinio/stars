@@ -13,7 +13,10 @@ body {
 #stars {
   --scale: 1;
 
-  position: relative;
+  /* overflow: hidden; */
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   perspective: 6rem;
@@ -23,10 +26,30 @@ body {
 
 .star {
   position: absolute;
-  height: 4px;
-  width: 4px;
-  background-color: white;
-  border-radius: 50%;
+  height: 2px;
+  width: 2px;
+  background-color: rgb(255, 251, 198);
+  border-radius: 100%;
   transform-style: preserve-3d;
   box-shadow: 0 0 10px 1px #fff;
+}
+
+.blink {
+  animation: blink 1000ms ease;
+}
+
+@keyframes blink {
+  0% {
+    background-color: rgb(255, 251, 198);
+    box-shadow: 0 0 10px 1px #fff;
+  }
+  50% {
+    background-color: #fff;
+    box-shadow: 0 0 10px 3px #fff;
+  }
+
+  100% {
+    background-color: rgb(255, 251, 198);
+    box-shadow: 0 0 10px 1px #fff;
+  }
 }
