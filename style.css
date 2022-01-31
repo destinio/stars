@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#stars {
+  --scale: 1;
+
+  position: relative;
+  height: 100%;
+  width: 100%;
+  perspective: 10rem;
+  transform: scale(var(--scale));
+}
+
+.star {
+  position: absolute;
+  height: 4px;
+  width: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
