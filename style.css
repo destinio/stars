@@ -16,8 +16,9 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
-  perspective: 10rem;
+  perspective: 6rem;
   transform: scale(var(--scale));
+  /* border: 4px solid red; */
 }
 
 .star {
@@ -27,4 +28,5 @@ body {
   background-color: white;
   border-radius: 50%;
   transform-style: preserve-3d;
+  box-shadow: 0 0 10px 1px #fff;
 }
