@@ -50,11 +50,11 @@ window.addEventListener('mousemove', e => {
   )
 })
 
-setInterval(() => {
-  const allStars = document.querySelectorAll('.star')
+// setInterval(() => {
+//   const allStars = document.querySelectorAll('.star')
 
-  const currentStar = allStars[Math.floor(Math.random() * allStars.length)]
+//   const currentStar = allStars[Math.floor(Math.random() * allStars.length)]
 
-  currentStar.classList.remove('blink')
-  currentStar.classList.add('blink')
-}, 250)
+//   currentStar.classList.remove('blink')
+//   currentStar.classList.add('blink')
+// }, 250)
