@@ -26,18 +26,20 @@ for (let i = 0; i <= MAX_STARS; i++) {
 }
 
 window.addEventListener('wheel', e => {
-  const prevScale = Number(getComputedStyle(stars).getPropertyValue('--scale'))
+  if (window.innerWidth > 700) {
+    const prevScale = Number(getComputedStyle(stars).getPropertyValue('--scale'))
 
-  if (Math.sign(e.deltaY) === 1) {
-    stars.style.setProperty('--scale', `${Number(prevScale) + 0.02}`)
-    return
+    if (Math.sign(e.deltaY) === 1) {
+      stars.style.setProperty('--scale', `${Number(prevScale) + 0.02}`)
+      return
+    }
+
+    if (prevScale <= 0.6) {
+      return
+    }
+
+    stars.style.setProperty('--scale', `${Number(prevScale) + -0.02}`)
   }
-
-  if (prevScale <= 0.6) {
-    return
-  }
-
-  stars.style.setProperty('--scale', `${Number(prevScale) + -0.02}`)
 })
 
 window.addEventListener('mousemove', e => {
