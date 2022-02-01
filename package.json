@@ -1,0 +1,23 @@
+{
+  "name": "stars",
+  "version": "1.0.0",
+  "description": "`npx tsc -w`",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/destinio/stars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/destinio/stars/issues"
+  },
+  "homepage": "https://github.com/destinio/stars#readme",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
