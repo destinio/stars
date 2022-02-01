@@ -1,6 +1,6 @@
 const stars = document.querySelector('#stars') as HTMLDivElement
 
-const MAX_STARS = 200
+const MAX_STARS = 250
 
 const WIN_HEIGHT = stars.offsetHeight
 const WIN_WIDTH = stars.offsetWidth
@@ -41,6 +41,9 @@ window.addEventListener('wheel', e => {
 })
 
 window.addEventListener('mousemove', e => {
+  // console.log('e.clientX', e.clientX / window.innerWidth)
+  console.log('e.clientY', Math.floor((e.clientY / window.innerHeight) * 50))
+
   stars.style.setProperty(
     'perspective-origin',
     `${(e.clientX / window.innerWidth) * 100}% ${(e.clientY / window.innerHeight) * 100}%`
